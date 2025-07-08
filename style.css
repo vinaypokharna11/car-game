@@ -59,6 +59,30 @@ img{
 }
 
 
+.End{
+  position: absolute;
+    color: white;
+    transform: rotate(90deg);
+    font-size: 50px;
+    right: 5px;
+    top: 100px;
+}
+.game-one{
+position: absolute;
+    color: white;
+    transform: rotate(90deg);
+    font-size: 50px;
+    right: -18px;
+    top: 500px;
+}
+.finish{
+position: absolute;
+right: 18px;
+top: 190px;
+background-color: white;
+width: 10px;
+height: 250px;
+}
 .obstacle{
     width: 50px;
     height: 50px;
