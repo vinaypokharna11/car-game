@@ -94,3 +94,21 @@ car.addEventListener("keydown", e => {
 // 7. Start everything
 car.focus();                         
 requestAnimationFrame(checkCollisionLoop);
+
+
+// const modal     = document.getElementById('myModal');
+// const closeBtn  = document.getElementById('closeBtn');
+// const okBtn     = document.getElementById('okBtn');
+// const modalText = document.getElementById('modalText');
+
+// function showAlert(message) {
+//   modalText.textContent = message;
+//   modal.style.display = 'flex';
+// }
+
+// closeBtn.onclick = okBtn.onclick = () => {
+//   modal.style.display = 'none';
+// };
+
+// // usage:
+// showAlert("💥 Game Over!\nDo you want to restart?");
