@@ -4,7 +4,7 @@
 //   alert(`Welcome, ${playerName}! Use the arrow keys to drive the car.`);
 // }
 
-// 1. Grab elements and initialize state
+//  Grab elements and initialize state
 let car        = document.querySelector("#car");
 let obstacles  = document.querySelectorAll(".obstacle");
 let finishLine = document.querySelector(".finish");
@@ -12,7 +12,7 @@ let marginX    = 0;       // horizontal offset
 let marginY    = 0;       // vertical offset
 let gameOver   = false;
 
-// 2. Axis-aligned bounding-box collision test
+// Axis-aligned bounding-box collision test
 function isColliding(a, b) {
   const r1 = a.getBoundingClientRect();
   const r2 = b.getBoundingClientRect();
@@ -24,7 +24,7 @@ function isColliding(a, b) {
   );
 }
 
-// 3. “Game Over” handler
+//“Game Over” handler
 function endGame() {
   gameOver = true;
   if (confirm("💥 Game Over!\nDo you want to restart?")) {
@@ -32,7 +32,7 @@ function endGame() {
   }
 }
 
-// 4. “You Win!” handler
+// “You Win!” handler
 function winGame() {
   gameOver = true;
   if (confirm("🎉 Congratulations — You win!\nPlay again?")) {
@@ -40,16 +40,16 @@ function winGame() {
   }
 }
 
-// 5. Main loop: check for win first, then crash
+//  Main loop: check for win first, then crash
 function checkCollisionLoop() {
   if (gameOver) return;
 
-  // 5a. Win check
+  //  Win check
   if (isColliding(car, finishLine)) {
     return winGame();
   }
 
-  // 5b. Crash check
+  // Crash check
   for (let obs of obstacles) {
     if (isColliding(car, obs)) {
       return endGame();
@@ -92,6 +92,5 @@ car.addEventListener("keydown", e => {
 });
 
 // 7. Start everything
-car.focus();                            // ensure arrow keys are captured
+car.focus();                         
 requestAnimationFrame(checkCollisionLoop);
-  
