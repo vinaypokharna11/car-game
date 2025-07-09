@@ -1,30 +1,31 @@
-// 0. Ask the player’s name (optional)
-// let playerName = prompt("Enter your name:");
-// if (playerName) {
-//   alert(`Welcome, ${playerName}! Use the arrow keys to drive the car.`);
-// }
+// 0. Ask the player’s name
+let playerName = prompt("Enter your name:");
+if (playerName) {
+  alert(`Welcome, ${playerName}! Use the arrow keys to drive the car.`);
+}
 
-//  Grab elements and initialize state
-let car        = document.querySelector("#car");
-let obstacles  = document.querySelectorAll(".obstacle");
-let finishLine = document.querySelector(".finish");
-let marginX    = 0;       // horizontal offset
-let marginY    = 0;       // vertical offset
-let gameOver   = false;
+// 1. Grab elements and initialize state
+const car        = document.querySelector("#car");
+const obstacles  = document.querySelectorAll(".obstacle");
+const finishLine = document.querySelector(".finish");
+let marginX      = 0;      // horizontal offset
+let marginY      = 0;      // vertical offset
+let gameOver     = false;
 
-// Axis-aligned bounding-box collision test
+
 function isColliding(a, b) {
   const r1 = a.getBoundingClientRect();
   const r2 = b.getBoundingClientRect();
+
   return !(
-    r1.bottom < r2.top    ||  // a is above b
-    r1.top    > r2.bottom ||  // a is below b
-    r1.right  < r2.left   ||  // a is left of b
-    r1.left   > r2.right     // a is right of b
+    r1.bottom < r2.top    || 
+    r1.top    > r2.bottom ||  
+    r1.right  < r2.left   ||  
+    r1.left   > r2.right     
   );
 }
 
-//“Game Over” handler
+// 3. “Game Over” handler
 function endGame() {
   gameOver = true;
   if (confirm("💥 Game Over!\nDo you want to restart?")) {
@@ -32,7 +33,7 @@ function endGame() {
   }
 }
 
-// “You Win!” handler
+// 4. “You Win!” handler
 function winGame() {
   gameOver = true;
   if (confirm("🎉 Congratulations — You win!\nPlay again?")) {
@@ -40,28 +41,29 @@ function winGame() {
   }
 }
 
-//  Main loop: check for win first, then crash
+// 5. Main loop: check for win first, then crash
 function checkCollisionLoop() {
   if (gameOver) return;
 
-  //  Win check
+  // Win check
   if (isColliding(car, finishLine)) {
-    return winGame();
+    winGame();
+    return;
   }
 
   // Crash check
   for (let obs of obstacles) {
     if (isColliding(car, obs)) {
-      return endGame();
+      endGame();
+      return;
     }
   }
 
-  // schedule next check
   requestAnimationFrame(checkCollisionLoop);
 }
 
 // 6. Move the car on arrow keys
-car.addEventListener("keydown", e => {
+car.addEventListener("keydown", (e) => {
   if (gameOver) return;
 
   switch (e.key) {
@@ -92,23 +94,5 @@ car.addEventListener("keydown", e => {
 });
 
 // 7. Start everything
-car.focus();                         
+car.focus();
 requestAnimationFrame(checkCollisionLoop);
-
-
-// const modal     = document.getElementById('myModal');
-// const closeBtn  = document.getElementById('closeBtn');
-// const okBtn     = document.getElementById('okBtn');
-// const modalText = document.getElementById('modalText');
-
-// function showAlert(message) {
-//   modalText.textContent = message;
-//   modal.style.display = 'flex';
-// }
-
-// closeBtn.onclick = okBtn.onclick = () => {
-//   modal.style.display = 'none';
-// };
-
-// // usage:
-// showAlert("💥 Game Over!\nDo you want to restart?");

@@ -1,147 +1,135 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; 
-}
-html,body{
-    width: 100%;
-    height: 100%;
-    background-color: blanchedalmond;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-img{
-    width: 80px;
-    height: 100px;
-    
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: blanchedalmond;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.race-box{
-    width: 80vw;
-    height: 80vh;
-    background-color: black;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    
-}
-#car{
-        position: absolute;
-        top: 300px;
-        transform: rotate(90deg);
-        left: -5;
+.race-box {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  background-color: black;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.heading{
-   padding: 2rem;
+.heading {
+  padding: 2rem;
 }
 
-.start{
-    position: absolute;
-    color: white;
-    transform: rotate(90deg);
-    font-size: 50px;
-    top: 100px;
-    left: -20px;
-    z-index: 99;
-}
-.game{
-    position: absolute;
-    color: white;
-    transform: rotate(90deg);
-    font-size: 50px;
-    top: 500px;
-    left: -30px;
-    z-index: 99;
+img {
+  width: 80px;
+  height: 100px;
 }
 
-
-.End{
+#car {
   position: absolute;
-    color: white;
-    transform: rotate(90deg);
-    font-size: 50px;
-    right: 5px;
-    top: 100px;
-}
-.game-one{
-position: absolute;
-    color: white;
-    transform: rotate(90deg);
-    font-size: 50px;
-    right: -18px;
-    top: 500px;
-}
-.finish{
-position: absolute;
-right: 18px;
-top: 190px;
-background-color: white;
-width: 10px;
-height: 250px;
-}
-.obstacle{
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    position: absolute;
-    animation-name: up-down;
-
+  top: 300px;
+  left: -5px;
+  transform: rotate(90deg);
 }
 
-.one{
-background: green;
-z-index: 1;
-top: 0px;
-left: 180px;
-    animation-name: up-down;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+.start,
+.game,
+.End,
+.game-one {
+  position: absolute;
+  color: white;
+  transform: rotate(90deg);
+  font-size: 50px;
+  z-index: 99;
+}
 
+.start {
+  top: 100px;
+  left: -20px;
 }
-.two{
-background: yellow;
-z-index: 1;
-bottom: 0;
-left: 450px;
-    animation-name: down-up;
+
+.game {
+  top: 500px;
+  left: -30px;
+}
+
+.End {
+  top: 100px;
+  right: 5px;
+}
+
+.game-one {
+  top: 500px;
+  right: -18px;
+}
+
+.finish {
+  position: absolute;
+  top: 190px;
+  right: 18px;
+  width: 10px;
+  height: 250px;
+  background-color: white;
+}
+
+.obstacle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-.three{
-background: blue;
-z-index: 1;
-top: 0px;
-left: 700px;
-    animation-name: up-down;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+
+.one {
+  top: 0;
+  left: 180px;
+  background-color: green;
+  animation-name: up-down;
+  animation-duration: 4s;
 }
-.four{
-background: purple;
-z-index: 1;
-top: 0px;
-left: 1000px;
-    animation-name: up-down;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+
+.two {
+  bottom: 0;
+  left: 450px;
+  background-color: yellow;
+  animation-name: down-up;
+  animation-duration: 5s;
+  animation-delay: 0.5s;
 }
-.five{
-background: rgb(32, 31, 31);
-z-index: 1;
-bottom: 0;
-left: 1200px;
- animation-name: down-up;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
- 
+
+.three {
+  top: 0;
+  left: 700px;
+  background-color: blue;
+  animation-name: up-down;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.four {
+  top: 0;
+  left: 1000px;
+  background-color: purple;
+  animation-name: up-down;
+  animation-duration: 4.5s;
+  animation-delay: 1.5s;
+}
+
+.five {
+  bottom: 0;
+  left: 1200px;
+  background-color: rgb(32, 31, 31);
+  animation-name: down-up;
+  animation-duration: 5.5s;
+  animation-delay: 2s;
 }
 
 @keyframes up-down {
@@ -151,21 +139,14 @@ left: 1200px;
 }
 
 @keyframes down-up {
-  0%   { bottom:0; }
-  50%  { bottom:686px; }
-  100% {  bottom:0; }
+  0%   { bottom: 0; }
+  50%  { bottom: 686px; }
+  100% { bottom: 0; }
 }
 
-
-.one   { animation-duration: 4s;  }
-.two   { animation-duration: 5s;  animation-delay: 0.5s; }
-.three { animation-duration: 6s;  animation-delay: 1s;   }
-.four  { animation-duration: 4.5s; animation-delay: 1.5s; }
-.five  { animation-duration: 5.5s; animation-delay: 2s;   }
-
-
-/* .modal {
-  display: none;             
+/* Modal styles (commented out)
+.modal {
+  display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.5);
@@ -181,7 +162,8 @@ left: 1200px;
 }
 .close {
   position: absolute;
-  top: 0.5rem; right: 1rem;
+  top: 0.5rem;
+  right: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -192,4 +174,5 @@ button {
   color: white;
   border: none;
   border-radius: 0.25rem;
-} */
+}
+*/
