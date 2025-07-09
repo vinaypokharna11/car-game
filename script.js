@@ -1,4 +1,3 @@
-// 0. Ask the player’s name
 let playerName = prompt("Enter your name:");
 if (playerName) {
   alert(`Welcome, ${playerName}! Use the arrow keys to drive the car.`);
@@ -8,8 +7,8 @@ if (playerName) {
 const car        = document.querySelector("#car");
 const obstacles  = document.querySelectorAll(".obstacle");
 const finishLine = document.querySelector(".finish");
-let marginX      = 0;      // horizontal offset
-let marginY      = 0;      // vertical offset
+let marginX      = 0;     
+let marginY      = 0;    
 let gameOver     = false;
 
 
