@@ -48,7 +48,7 @@ No additional dependencies or build steps are required.
 
 Feel free to open issues or submit pull requests to add features, fix bugs, or improve the game experience.
 
-Contact
+# Contact
 If you have any questions or would like to collaborate on this project, feel free to contact me:
 
 Email: vinaypokharna11@gmail.com
